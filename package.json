@@ -1,0 +1,17 @@
+{
+    "name": "BroadLinkServer",
+    "version": "0.0.1",
+    "main": "server.js",
+    "author": "jor3l",
+    "license": "ISC",
+    "dependencies": {
+        "express": "latest",
+        "lodash": "latest",
+        "cors": "latest",
+        "body-parser": "latest",
+        "request": "latest",
+        "helmet": "latest",
+        "broadlinkjs-rm": "latest",
+        "uuid": "latest"
+    }
+}

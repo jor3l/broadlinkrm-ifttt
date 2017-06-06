@@ -23,8 +23,8 @@ app.use(bodyParser.json());
 
 app.post('/command/:name', function(req, res) {
     const command = commands.find((e) => { return e.command == req.params.name; });
-    
-    if(command && req.body.secret && req.body.secret == command.secret) {
+
+    if (command && req.body.secret && req.body.secret == command.secret) {
         const host = command.mac || command.ip;
         const device = Broadlink({ host });
         const hexData = command.data;
@@ -51,4 +51,3 @@ app.post('/command/:name', function(req, res) {
 
 app.listen(PORT);
 console.log('Server running, go to http://localhost:' + PORT);
-// Urls:

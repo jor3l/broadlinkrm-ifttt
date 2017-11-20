@@ -12,7 +12,9 @@ Example:
         "command": "YOUR_COMMAND_HERE",
         "secret": "SET_A_RANDOM_HASH_HERE",
         "ip": "YOUR_DEVICE_IP_HERE",
-        "data": "RM_BRIDGE_DATA_HERE"
+        "mac": "MAC_ADDRESS_HERE", // Use mac instead of IP when possible.
+        "sequence": ["command", "command"], // If sequence is defined, all the commands inside the array will be run in sequence.
+        "data": "RM_BRIDGE_DATA_HERE" // only runs if there is no sequence defined.
     }
 */
 

@@ -1,9 +1,16 @@
 {
-    "name": "BroadLinkServer",
-    "version": "0.0.1",
-    "main": "server.js",
+    "name": "broadlink-rm-server",
+    "version": "0.0.5",
+    "main": "index.js",
     "author": "jor3l",
     "license": "ISC",
+    "scripts": {
+        "start": "node example"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jor3l/broadlinkrm-ifttt"
+    },
     "dependencies": {
         "express": "latest",
         "lodash": "latest",

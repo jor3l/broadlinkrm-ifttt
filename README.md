@@ -28,39 +28,39 @@ console.log('Server running, go to http://localhost:' + PORT);
 Create a file named ```commands.js``` and add:
 
 ```js
-module.exports = [{
-        "command": "TV_On",
-        "secret": "AkDio83",
-        "mac":"34:ea:34:bb:16:1a",
-        "data": "DATA_HERE"
-    },
-    {
-        "command": "Sound_On",
-        "secret": "kIADLldepp398ufkk",
-        "mac":"34:ea:34:bb:16:1a",
-        "data": "DATA_HERE"
-    },
-    {
-        "secret": "&dkblDA3/",
-        "command": "TVSound",
-        "sequence": ["TV_On", "Sound_On"],
-        "mac":"34:ea:34:bb:16:1a"
-    }
-];
+module.exports = [];
 ```
 
-Configure this commands.js file with your commands and IP/Mac address of the BroadlinkRM.
+Configure this commands.js file with your commands and IP/Mac address of the BroadlinkRM (see below).
 
 Now run ```node index``` and the server should start. You will see in the console your Broadlink IP address, we will use it later.
 
-# Learn some IR codes
-Open the RM Bridge app and start the service, then, navigate to: http://rm-bridge.fun2code.de/rm_manage/code_learning.html
+# Learn IR codes
+Learning codes is now built in with the server, in order to enable it, edit your index file and modify the line:
 
-Configure the website with your RM Bridge IP and PORT and click Load devices. If you can't find your device you will need to manually add it using the *Add manually* option. Google how to get the MAC Address from the IP you got when running the server.
+```js
+let app = BroadlinkServer(commands);
+```
 
-Once added, click on Learn Code and point your remote to the Broadlink, press the button you want to learn. You will get a JSON with the details to run this code, copy the *data* value (this is a HEX of the IR code you just sent to the Broadlink).
+After commands, set TRUE to enable the learning mode.
 
-Modify the *commands.js* file with this code (follow the instructions there).
+```js
+let app = BroadlinkServer(commands, true);
+```
+
+Now run the server with ```node index``` and open your browser, go to your server url and add */learn/command/MAC_OR_IP*, point your remote to the Broadlink and press the key you want to attach to the command. You will get a response like this:
+
+```js
+{
+    command: "Projector",
+    secret: "dnja9kdtn",
+    mac: "34:ea:34:bb:16:1a",
+    ip: false,
+    data:"260058000001289413121213111413121213111413121114113911391238113911391238111412381114123811141213111411141212121410391214103912391237113912391237110005490001264b12000c5e0001264b11000d05"
+}
+```
+
+Add this command to your command.js array and save. Remember to disable the learning mode by removing the true or setting it to false.
 
 ## Ngrok
 In order to connect IFTTT to the PC/server running this code (like a Raspberry Pi), you will need a URL that tunnels to your device, this is done with ngrok. 

@@ -1,6 +1,6 @@
 {
     "name": "broadlink-rm-server",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "main": "index.js",
     "author": "jor3l",
     "license": "ISC",

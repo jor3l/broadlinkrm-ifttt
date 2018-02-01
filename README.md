@@ -6,8 +6,6 @@ This is a simple server that allows you to connect your Broadlink (tested with t
 - Get a IFTTT account and enable the Maker Webhooks: https://ifttt.com/maker_webhooks
 - Download and install ngrok: https://ngrok.com/
 - Install this repository by running ```npm install broadlink-rm-server```
-- Install the Broadlink app and setup your home Wifi (I asume your Broadlink is connected to the same network as your server from now on)
-- Download the RM Bridge app (Android only). This is needed to learn the IR codes for your appliances.
 
 # Running with NPM
 Create a file named ```index.js``` and add the following code:

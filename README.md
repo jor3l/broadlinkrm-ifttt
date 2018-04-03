@@ -1,4 +1,6 @@
 # Broadlink RM Server for IFTTT control
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](http://cash.me/$jor3l)
+
 
 This is a simple server that allows you to connect your Broadlink (tested with the RM mini 3) to your IFTTT account.
 

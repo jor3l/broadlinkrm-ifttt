@@ -13,7 +13,7 @@ This is a simple server that allows you to connect your Broadlink (tested with t
 Create a file named ```index.js``` and add the following code:
 
 ```js
-"use stict";
+"use strict";
 const PORT = process.env.PORT || 1880;
 
 const BroadlinkServer = require('broadlink-rm-server');

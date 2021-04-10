@@ -5,7 +5,8 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
-const uuid = require('uuid/v4');
+//const uuid = require('uuid/v4');
+const { v4: uuid } = require('uuid');
 const request = require('request');
 const macRegExp = /^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/;
 

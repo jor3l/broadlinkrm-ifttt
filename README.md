@@ -10,45 +10,24 @@ This is a simple server that allows you to connect your Broadlink (tested with t
 - Install this repository by running ```npm install broadlink-rm-server```
 
 # Running with NPM
-Create a file named ```index.js``` and add the following code:
-
-```js
-"use stict";
-const PORT = process.env.PORT || 1880;
-
-const BroadlinkServer = require('broadlink-rm-server');
-const commands = require('./commands');
-
-let app = BroadlinkServer(commands);
-    app.listen(PORT);
-
-console.log('Server running, go to http://localhost:' + PORT);
-```
-
-Create a file named ```commands.js``` and add:
-
-```js
-module.exports = [];
-```
-
 Configure this commands.js file with your commands and IP/Mac address of the BroadlinkRM (see below).
 
-Now run ```node index``` and the server should start. You will see in the console your Broadlink IP address, we will use it later.
+Now run ```node server``` and the server should start. You will see in the console your Broadlink IP address, we will use it later.
 
 # Learn IR codes
 Learning codes is now built in with the server, in order to enable it, edit your index file and modify the line:
 
 ```js
-let app = BroadlinkServer(commands);
+module.exports = (commands, learnEnabled = false) => {
 ```
 
 After commands, set TRUE to enable the learning mode.
 
 ```js
-let app = BroadlinkServer(commands, true);
+module.exports = (commands, learnEnabled = true) => {
 ```
 
-Now run the server with ```node index``` and open your browser, go to your server url and add */learn/command/MAC_OR_IP*, point your remote to the Broadlink and press the key you want to attach to the command. You will get a response like this:
+Now run the server with ```node server``` and open your browser, go to your server url and add */learn/command/MAC_OR_IP*, point your remote to the Broadlink and press the key you want to attach to the command. You will get a response like this:
 
 ```js
 {
